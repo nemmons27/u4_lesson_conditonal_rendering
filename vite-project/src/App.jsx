@@ -3,7 +3,7 @@ import './App.css'
 import Greeting from './components/Greeting'
 import LoginButton from './components/LoginButton'
 import LogoutButton from './components/LogoutButton'
-import messages from './components/Messages'
+import Messages from './components/Messages'
 
 function App() {
   const [isLoggedIn, toggleLogin] = useState(false)
@@ -20,7 +20,7 @@ function App() {
 
   let button 
 
-  const messages = isLoggedIn && <messages unreadMessages={unreadMessages} />
+  const messages = isLoggedIn && <Messages unreadMessages={unreadMessages} />
 
   if (isLoggedIn) {
     button = <LogoutButton handleLogoutClick={handleLogoutClick} />
@@ -32,8 +32,8 @@ function App() {
       <div className='App'>
         <Greeting isLoggedIn={false} />
         <p>The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.</p>
-        {messages}
         {button}
+        {messages}
       </div>
   );
 }
